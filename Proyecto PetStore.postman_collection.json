@@ -1,0 +1,881 @@
+{
+  "info": {
+    "_postman_id": "d5fed90d-fe15-4f5a-bf9c-fbf7dfdb1a69",
+    "name": "Proyecto PetStore",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54356312",
+    "_collection_link": "https://go.postman.co/collection/54356312-d5fed90d-fe15-4f5a-bf9c-fbf7dfdb1a69?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "CreateNewUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"CHK3-Validate Body is correct\", function () {\r",
+                  "    pm.response.to.have.body({  \"code\": 200,\r",
+                  "  \"type\": \"unknown\",\r",
+                  "  \"message\": \"ok\"\r",
+                  "  });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  [{\r\n        \"id\": 246,\r\n        \"username\": \"maria_gonzalez3\",\r\n        \"firstName\": \"maria\",\r\n        \"lastName\": \"gonzalez\",\r\n        \"email\": \"gonzalezmari@hotmail.com\",\r\n        \"password\": \"mariii\",\r\n        \"phone\": \"1155443355\",\r\n        \"userStatus\": 0\r\n  }]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL/USER}}/createWithList",
+              "host": [
+                "{{URL/USER}}"
+              ],
+              "path": [
+                "createWithList"
+              ]
+            },
+            "description": "## CreateNewUser\n\nCreates a new user in the Petstore system by submitting a list with a single user object.\n\n**Endpoint:** `POST https://petstore.swagger.io/v2/user/createWithList`\n\n---\n\n### Request Body\n\nThe request body must be a JSON array containing one or more user objects. Each user object supports the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| `id` | integer | Unique identifier for the user |\n| `username` | string | Username for login |\n| `firstName` | string | User's first name |\n| `lastName` | string | User's last name |\n| `email` | string | User's email address |\n| `password` | string | User's password |\n| `phone` | string | User's phone number |\n| `userStatus` | integer | User status (0 = active) |\n\n**Example body:**\n\n``` json\n[\n  {\n    \"id\": 233,\n    \"username\": \"laura_perez\",\n    \"firstName\": \"laura\",\n    \"lastName\": \"perez\",\n    \"email\": \"lau_p@hotmail.com\",\n    \"password\": \"lauperes33\",\n    \"phone\": \"1133224455\",\n    \"userStatus\": 0\n  }\n]\n\n ```\n\n---\n\n### Tests\n\nThis request includes the following automated checks:\n\n- **CHK1** – Validates that the response status code is `200`.\n    \n- **CHK2** – Validates that the response time is below `800ms`.\n    \n- **CHK3** – Validates that the response body contains the expected user data.\n    \n\n---\n\n### Expected Response\n\n- **Status:** `200 OK`\n    \n- **Body:** Confirmation message from the server upon successful user creation."
+          },
+          "response": [
+            {
+              "name": "CreateNewUser",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n    \"id\": 233,\r\n    \"username\": \"laura_perez\",\r\n    \"firstName\": \"laura\",\r\n    \"lastName\": \"perez\",\r\n    \"email\": \"lau_p@hotmail.com\",\r\n    \"password\": \"lauperes33\",\r\n    \"phone\": \"1133224455\",\r\n    \"userStatus\": 0\r\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/createWithList",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "createWithList"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 500
+                },
+                {
+                  "key": "date",
+                  "value": "Tue, 19 May 2026 23:52:50 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, DELETE, PUT"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, api_key, Authorization"
+                },
+                {
+                  "key": "server",
+                  "value": "Jetty(9.2.9.v20150224)"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 500,\n    \"type\": \"unknown\",\n    \"message\": \"something bad happened\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "CheckExistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "pm.test(\"CHK3-Validate Body is correct\", function () {\r",
+                  "    pm.response.to.have.body({\r",
+                  "        \"id\": 233,\r",
+                  "        \"username\": \"laura_perez\",\r",
+                  "        \"firstName\": \"laura\",\r",
+                  "        \"lastName\": \"perez\",\r",
+                  "        \"email\": \"lau_p@hotmail.com\",\r",
+                  "        \"password\": \"lauperes33\",\r",
+                  "        \"phone\": \"1133224455\",\r",
+                  "        \"userStatus\": 0\r",
+                  "    });\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"username\": \"laura_perez\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL/USER}}laura_perez",
+              "host": [
+                "{{URL/USER}}laura_perez"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "CheckUserExist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"username\": \"laura_perez\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/laura_perez",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "laura_perez"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 20 May 2026 01:14:42 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, DELETE, PUT"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, api_key, Authorization"
+                },
+                {
+                  "key": "server",
+                  "value": "Jetty(9.2.9.v20150224)"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 233,\n    \"username\": \"laura_perez\",\n    \"firstName\": \"laura\",\n    \"lastName\": \"perez\",\n    \"email\": \"lau_p@hotmail.com\",\n    \"password\": \"lauperes33\",\n    \"phone\": \"1133224455\",\n    \"userStatus\": 0\n}"
+            }
+          ]
+        },
+        {
+          "name": "CheckUpdateUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "pm.test(\"CHK3-Validate Body is correct\", function () {\r",
+                  "    pm.response.to.have.body({\r",
+                  "    \"id\": 9223372036854761318,\r",
+                  "  \"username\": \"laura_luz\",\r",
+                  "  \"firstName\": \" \",\r",
+                  "  \"lastName\": \" luz\",\r",
+                  "  \"email\": \"1234566\",\r",
+                  "  \"password\": \"holaMundo\",\r",
+                  "  \"phone\": \"unodostres\",\r",
+                  "  \"userStatus\": 0\r",
+                  "});\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"username\": \"laura_luz\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/laura_luz",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "laura_luz"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CheckUnexistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "pm.test(\"CHK3-Validate Body is correct\", function () {\r",
+                  "    pm.response.to.have.body({\r",
+                  "  \"code\": 1,\r",
+                  "  \"type\": \"error\",\r",
+                  "  \"message\": \"User not found\"\r",
+                  "    });\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"username\": \"UnexistUser\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL/USER}}/UnexistUser",
+              "host": [
+                "{{URL/USER}}"
+              ],
+              "path": [
+                "UnexistUser"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateExistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1100);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"CHK3-Validate Body matches string\", function () {\r",
+                  "\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.code).to.eql(200);\r",
+                  "    pm.expect(jsonData.type).to.eql(\"unknown\");\r",
+                  "\r",
+                  "});\r",
+                  "  "
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n  \"id\": 0,\r\n  \"username\": \"laura_luz\",\r\n  \"firstName\": \" \",\r\n  \"lastName\": \" luz\",\r\n  \"email\": \"1234566\",\r\n  \"password\": \"holaMundo\",\r\n  \"phone\": \"unodostres\",\r\n  \"userStatus\": 0\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/laura_perez",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "laura_perez"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "UpdateExistUser",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n  \"id\": 0,\r\n  \"username\": \"laura_luz\",\r\n  \"firstName\": \" \",\r\n  \"lastName\": \" luz\",\r\n  \"email\": \"1234566\",\r\n  \"password\": \"holaMundo\",\r\n  \"phone\": \"unodostres\",\r\n  \"userStatus\": 0\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/laura_perez",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "laura_perez"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 20 May 2026 01:30:47 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, DELETE, PUT"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, api_key, Authorization"
+                },
+                {
+                  "key": "server",
+                  "value": "Jetty(9.2.9.v20150224)"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"9223372036854761373\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeleteExistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"CHK3-validate Body is correct\", function () {\r",
+                  "    pm.response.to.have.body({\r",
+                  "  \"code\": 200,\r",
+                  "  \"type\": \"unknown\",\r",
+                  "  \"message\": \"maria_gonzalez2\"\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"maria_gonzalez2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/maria_gonzalez2",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "maria_gonzalez2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "DeleteExistUser",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"username\": \"maria_gonzalez2\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/maria_gonzalez2",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "maria_gonzalez2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 200
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 20 May 2026 01:55:00 GMT"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, DELETE, PUT"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, api_key, Authorization"
+                },
+                {
+                  "key": "server",
+                  "value": "Jetty(9.2.9.v20150224)"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 200,\n    \"type\": \"unknown\",\n    \"message\": \"maria_gonzalez2\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "DeleteUnexistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"UnexistUser\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/UnexistUser",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "UnexistUser"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "DeleteUnexistUser",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"username\": \"UnexistUser\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "https://petstore.swagger.io/v2/user/UnexistUser",
+                  "protocol": "https",
+                  "host": [
+                    "petstore",
+                    "swagger",
+                    "io"
+                  ],
+                  "path": [
+                    "v2",
+                    "user",
+                    "UnexistUser"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": ":status",
+                  "value": 404
+                },
+                {
+                  "key": "date",
+                  "value": "Wed, 20 May 2026 01:57:00 GMT"
+                },
+                {
+                  "key": "content-length",
+                  "value": "0"
+                },
+                {
+                  "key": "access-control-allow-origin",
+                  "value": "*"
+                },
+                {
+                  "key": "access-control-allow-methods",
+                  "value": "GET, POST, DELETE, PUT"
+                },
+                {
+                  "key": "access-control-allow-headers",
+                  "value": "Content-Type, api_key, Authorization"
+                },
+                {
+                  "key": "server",
+                  "value": "Jetty(9.2.9.v20150224)"
+                }
+              ],
+              "cookie": [],
+              "body": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "LoginSuccessfulExistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  "pm.test(\"CHK3-Validate Body matches string\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include({\r",
+                  "  \"code\": 200,\r",
+                  "  \"type\": \"unknown\",\r",
+                  "  \"message\": \"logged in user session:\"\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"maria_gonzalez\",\r\n    \"password\":\"mariii\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/login?username=maria_gonzalez3&password=mariii",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "maria_gonzalez3"
+                },
+                {
+                  "key": "password",
+                  "value": "mariii"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LoginUnsuccessfulUnexistUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"CHK1- Validate Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "pm.test(\"CHK2: Validate Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"unexistUser\",\r\n    \"password\":\"probando123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/login?username=unexistUser3&password=probando123",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "unexistUser3"
+                },
+                {
+                  "key": "password",
+                  "value": "probando123"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

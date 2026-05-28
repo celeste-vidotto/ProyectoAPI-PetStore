@@ -1,0 +1,35 @@
+
+AUTOMATIZACION EN POSTMAN: 
+
+NOTA: Dado que no contamos con el requerimiento de este swagger hay cosas que no estan definidas, pero se podria consultar para saber si, por ejemplo; el id y el userStatus los completa el sistema por defecto, e intentar cargarlo nosotros como usuarios. Podriamos consultar si los campos tienen limites de caracteres para aplicar metodos con particion de equivalencia y valores limites en las pruebas. 
+
+Sin embargo, la opcion para cargar archivos csv en postman y probar muchos casos de pruebas para un mismo escenario con diferentes datos de entrada, es paga. Por lo que en este caso nos limitamos a describir los pasos a seguir y compartir el archivo cvs.
+
+
+Modulo USER:
+
+metodo post createNewUser: 
+
+Aca podriamos hacer varias pruebas para validar de forma automatizada que tipo de usuario podemos cargar. Para ello:
+
+1. creariamos un doc csv con diferentes datos de entrada, por ejemplo: un usuario con campos vacios, otro con caracteres especiales en "phone", otro con numeros en los campos de string. -ver archivo "Datos-de-entrada-multiples.csv" 
+
+2.En postman abrimos "tools" -> "runner" -> en la seccion derecha seleccionamos la opcion "Funtional"
+
+3. En la seccion izquierda "run sequence" arrastrammos el folder que queremos automatizar y tildamos los metodos que deseamos. 
+
+4.Configuracion: Volvemos a la sección "funtional" y en "test data file" seleccionamos el archivo csv que creamos anteriormente. Veremos que en "iterations" se actualiza el numero según los datos que estan en el archivo csv, y en "delay" podemos settear la cantidad de tiempo que tarda en pasar el siguiente dato de entrada. 
+
+5.Seleciconamos "Start run"
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+testCase,id,username,firstName,lastName,email,password,phone,userStatus,expectedResult,expectedStatusCode
+TC01_HappyPath,1001,celeste01,Celeste,Vidotto,celeste@test.com,Pass1234,1133445566,1,Usuario creado correctamente,200
+TC02_AllFieldsEmpty,,,,,,,,Validar manejo de campos vacíos,400
+TC03_OnlyNumbers,123456,123456,123456,123456,123456,123456,123456,999,Validar aceptación/rechazo de solo números,400
+TC04_OnlySpecialChars,@@@,@@@,@@@,@@@,@@@,@@@,@@@,-1,Validar caracteres especiales inválidos,400
+TC05_ForcedIdAndUserStatus,999999,testForced,Juan,Perez,juan@test.com,Password1,1199887766,999,Validar comportamiento de id y userStatus forzados,200
+TC06_NullUserStatus,2001,userNull,Ana,Gomez,ana@test.com,Test1234,1177665544,,Validar valor default de userStatus,200
+TC07_NullId,,userNoId,Luis,Martinez,luis@test.com,Test1234,1166554433,1,Validar autogeneración de id,200
+TC08_InvalidEmail,3001,userEmail,Maria,Lopez,email-invalido,Pass1234,1155443322,1,Validar formato inválido de email,400
+TC09_LongUsername,4001,usuario_con_nombre_demasiado_largo_para_validar_limites_de_longitud,Carlos,Sanchez,carlos@test.com,Pass1234,1144332211,1,Validar longitud máxima username,400
+TC10_SQLInjection,5001,'OR1=1--,Robert,DropTable,sql@test.com,Pass1234,1133221100,1,Validar sanitización SQL Injection,400
+TC11_XSSInjection,6001,<script>alert(1)</script>,Hack,XSS,xss@test.com,Pass1234,1122110099,1,Validar protección XSS,400
+TC12_SpacesOnly,7001,   ,   ,   ,   ,   ,   ,1,Validar campos con espacios vacíos,400
+TC13_NegativeId,-10,userNegative,Pedro,Ramirez,pedro@test.com,Pass1234,1111000099,1,Validar id negativo,400
+TC14_MaxIntegerId,2147483647,userMaxId,Laura,Fernandez,laura@test.com,Pass1234,1100998877,1,Validar límite máximo integer,200
+TC15_UnicodeCharacters,8001,用户测试,名,姓,unicode@test.com,密码123,☎123456,1,Validar caracteres unicode,200
+TC16_EmptyPassword,9001,userNoPass,Sofia,Diaz,sofia@test.com,,1199008877,1,Validar password vacío,400
+TC17_InvalidPhone,10001,userPhone,Martin,Ruiz,martin@test.com,Pass1234,ABCDEF,1,Validar formato teléfono inválido,400
+TC18_BooleanUserStatus,11001,userBool,Lucia,Suarez,lucia@test.com,Pass1234,1188776655,true,Validar tipo de dato incorrecto userStatus,400
+TC19_DuplicateUser,1001,celeste01,Celeste,Vidotto,celeste@test.com,Pass1234,1133445566,1,Validar usuario duplicado,409
+TC20_MinimalValidData,12001,u1,A,B,a@a.com,1,1,0,Validar mínimos datos válidos,200

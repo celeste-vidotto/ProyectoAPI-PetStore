@@ -1,7 +1,7 @@
 PROYECTO API TESTING - PetStore
 
 Este es un proyecto de testing de APIs REST realizado con Postman con el objetivo de poner en practica los conocimientos aprendidos. 
-En el mismo utilizamos el siguiente Swagger https://petstore.swagger.io/v2/swagger.json para realizar las pruebas correspondientes 
+En el mismo utilizamos el siguiente Swagger https://petstore.swagger.io/#/ para realizar las pruebas correspondientes 
 y asegurar la calidad del mismo. 
 Encontrarán: 
 

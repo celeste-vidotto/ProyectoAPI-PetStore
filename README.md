@@ -20,7 +20,7 @@ Asi mismo, dado las limitaciones de la version gratuita de postman, solo se podr
 automatizaciones con datos de entrada multiples para una mayor cobertura en los casos de prueba y el archivo con los datos a utilizar en 
 la sección "Automatizacion" -> "Pasos-de-automatizacion" -> "Datos-de-entrada-multiples.json"
 
-Para visualizar la generacion de reporte con Newman y el informe realizado se deberá seleccionar la carpeta "Reporte-newman": allí encontraran dos archivos: "reporte-newman" es el propio reporte creado con newman e "informe-de-reporte" es una evalucion y analisis de los resultados obtenidos. 
+Para visualizar la generacion de reporte con Newman y el informe realizado se deberá seleccionar la carpeta "Reporte-newman": allí encontraran dos archivos: "reporte-newman" es el propio reporte creado con newman e "InformePetStoreCollection.docx" es una evalucion y analisis de los resultados obtenidos. 
 
  Link de la collection para visualizar en postman:
  https://go.postman.co/collection/54356312-d5fed90d-fe15-4f5a-bf9c-fbf7dfdb1a69?source=collection_link
